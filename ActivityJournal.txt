@@ -1,0 +1,55 @@
+SWEN-250 Activity Reflection
+
+Name: Miguel Reyes
+
+================================================================
+Start
+Estimated Time	2:30
+Plan:
+(Order of implementation, testing approach, etc.)
+filter_ch_index(char string[], char result[], char ch):
+    Loop through string using its indicies and skipping where ever
+    the current char in string is equal to ch. Otherwise store the
+    char in string into result.
+char *filter_ch_ptr(char *string, char ch):
+    Create a malloc that will store the new string after removing ch.
+    Create a pointer that points to the 1st byte of the malloc. 
+    Loop through the string pointer and skip every char in the string
+    pointer that is equal to ch. Otherwise, fill in the char in string
+    into new malloc and use a counter for everytime this is done in 
+    order to account for the new malloc that well use to return the
+    final string.
+    Create final malloc with correct size(counter) and then free 
+    origianl malloc.
+
+void filter_any_index(char string[], char result[], char remove[]):
+    Make a copy of the origina string because we will be updating 
+    the string but we need the original string to remain the same for
+    the remaining tests.
+    Check if remove is empty if so there is nothing to do but return
+    the original string.
+    Otherwise, use nested loops to iterate through both every char in 
+    copy and remove. Where ever a copy string char is equal to a char 
+    in remove we want to skip it otherwise we store it inside of result
+    and we update the copy string to the result value so we do not check
+    the same char again.
+
+char *filter_any_ptr(char *string, char *remove):
+    Same exact appraoch as filter_any_index except
+    we will need 3 mallocs and pointers to the first 
+    2 mallocs. One holds a copy of the string, the other will
+    hold the result. The last malloc is the final version 
+    with correct size.
+Complete
+Actual Time	04 : 00
+Observations:
+(Lessons learned, problems encountered, obstacles overcome, etc.)
+    I learned that whenever we are freeing a malloc the mallocs 
+    pointer must be pointing to its 1st byte if not it will not 
+    commplete the free. That is why its so essential in this case
+    when working with strings to have an addiotnal pointer just pointing
+    to the malloc and using that pointer to update the contents in the 
+    malloc.
+
+
+================================================================
